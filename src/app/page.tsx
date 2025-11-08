@@ -1,14 +1,5 @@
-import MessagePanel from "@/components/MessagePanel";
-import Workspace from "@/components/Workspace";
-import Image from "next/image";
+import LandingPage from "@/components/LandingPage";
 
 export default function Home() {
-  return (
-    <main>
-      <div>
-        <Workspace />
-        <MessagePanel />
-      </div>
-    </main>
-  );
+  return <LandingPage />;
 }

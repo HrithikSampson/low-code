@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Toast from "@/components/Toast";
 const inter = Inter({ subsets: ["latin"] });
-import Provider from "@/providers/ReduxProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
+
 export const metadata: Metadata = {
-  title: "Workflow Saver",
-  description: "Bitespeed Assignemt",
+  title: "Workflow Builder",
+  description: "Build intelligent conversational workflows",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <ReduxProvider>
         <body className={inter.className}>
-          <Navbar />
+          <Toast />
           {children}
         </body>
       </ReduxProvider>

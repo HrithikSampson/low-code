@@ -4,26 +4,20 @@ import { useCallback } from "react";
 import SettingsPanel from "./SettingsPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store";
+import DraggableContainer from "./DraggableContainer";
 const MessagePanel = () => {
   const selectedNodeId = useSelector(
     (state: RootState) => state.workflow.selectedNodeId,
   );
-  const onDrag = useCallback((event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-    event.dataTransfer.dropEffect = "move";
-  }, []);
   return selectedNodeId === null ? (
-    <div className={styles.container}>
-      <div className={styles.messageContainer} draggable onDragOver={onDrag}>
+    <DraggableContainer>
         <div className={styles.messageBox}>
           <p>___</p>
           <p>___</p>
           <p>__&nbsp;</p>
         </div>
         <div className={styles.messageText}>Message</div>
-      </div>
-    </div>
+     </DraggableContainer>
   ) : (
     <SettingsPanel />
   );
